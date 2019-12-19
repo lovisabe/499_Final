@@ -78,63 +78,47 @@ a {
 
 //STYLE GUIDE CSS
 
+.overflow-auto{
+  height: 100%;
+  overflow: hidden;
+}
+
 main {
-  width: 100vw;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  article {
+    height: 100%;
+    overflow: auto;
+  }
 }
 
 header {
   position: fixed;
   left: 0;
   top: 0;
-  bottom: 0;
   height: 5em;
   background-color: var(--color-purewhite);
   border-bottom: 1px solid var(--color-bg-dark);
-  border-right: none;
   width: 100vw;
-  display: none;
-  @include breakpoint("tablet") {
-    padding: 1em;
-  }
+  padding: 1em;
 }
 
 nav {
-  transition: 0.5s ease-in;
-  background: #1c1c1ced;
-  color: var(--color-purewhite);
-  border-bottom: 1px solid var(--color-purewhite);
   width: 100vw;
-  @include breakpoint("tablet") {
-    background: none;
-    transition: 0s;
-    color: var(--color-bg-dark);
-    border-bottom: none;
-    width: auto;
-    height: auto;
-  }
+  color: var(--color-bg-dark);
+  padding-left: 2vw;
   a {
     font-size: 1.4em;
     @include breakpoint("tablet") {
       font-size: 1.1em;
     }
   }
-  &.active {
-    transform: translate(0px, -40em);
-    transition: 0.5s ease-in;
-    @include breakpoint("tablet") {
-      transform: none;
-      transition: 0s;
-    }
-  }
-  @include breakpoint("tablet") {
-    padding-left: 2vw;
-  }
 }
 
 .content-contain-header {
   z-index: 20;
   background-color: var(--color-purewhite);
-  border-bottom: 1px solid var(--color-dark-gray);
   @include breakpoint("tablet") {
     border-bottom: 1px solid transparent;
   }
@@ -149,10 +133,8 @@ nav {
 
 .nav {
   z-index: 10;
-  @include breakpoint("tablet") {
-    justify-content: space-between;
-    align-items: center;
-  }
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-icon {
@@ -167,6 +149,23 @@ nav {
     position: relative;
     width: 1.8rem;
     top: -0.1em;
+  }
+}
+
+.mobile-nav {
+  z-index: 5;
+  background-color: var(--color-bg-dark);
+  border-bottom: 1px solid var(--color-purewhite);
+  color: var(--color-purewhite);
+  height: 50%;
+  transition: 0.5s ease-in;
+  &.active {
+    transform: translate(0px, -100%);
+    transition: 0.5s ease-in;
+  }
+  ul {
+    padding: 1em;
+    list-style: none;
   }
 }
 

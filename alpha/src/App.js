@@ -6,7 +6,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import {HeaderNav} from "./components/nav";
+import {HeaderNav, MobileNav} from "./components/nav";
 
 import HomePage from "./pages/home";
 import LearnPage from "./pages/learn";
@@ -45,6 +45,7 @@ function App() {
       <FontStyleSheet fonts={fonts}/>
       <HeaderNav title={"fontPairing"}/>
       <main>
+        <MobileNav/>
         <Switch>
           <Route exact path="/">
             <IntroPage fonts={fonts}/>
